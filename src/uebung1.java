@@ -1,20 +1,21 @@
 import java.sql.*;
 
-public class erster_dbzugriff {
+public class uebung1 {
+
     public static void main(String[] args) {
         try {
             Connection Verbindung;
             Statement Abfrage;
-            String db = "jdbc:mysql://localhost:3306/verkauf";
+            String db = "jdbc:mysql://localhost:3306/notenverwaltung";
             String user = "root";
             String pw = "";
-            String SQLString = "select * from artikel";
+            String SQLString = "select * from studierende where martikelnr <= 55555;";
             Verbindung = DriverManager.getConnection(db, user, pw);
             Abfrage = Verbindung.createStatement();
             ResultSet rs = Abfrage.executeQuery(SQLString);
 //            System.out.println(rs);
             while (rs.next ()) {
-                String spalte = rs.getString(1)+ ": " + rs.getString(2) + " " + rs.getString(3);
+                String spalte = "Martikelnr: " + rs.getString(1) + " Nachname: " + rs.getString(2) + " Vorname: " + rs.getString(3);
                 System.out.println(spalte);
             }
             Verbindung.close();
