@@ -18,6 +18,15 @@ public class uebung1 {
                 String spalte = "Martikelnr: " + rs.getString(1) + " Nachname: " + rs.getString(2) + " Vorname: " + rs.getString(3);
                 System.out.println(spalte);
             }
+
+            DatabaseMetaData dbmd = Verbindung.getMetaData();
+            System.out.println("Metadaten: ");
+            System.out.println("URL: " + dbmd.getURL());
+            System.out.println("UserName: " + dbmd.getUserName());
+            System.out.println("DatabaseProductName: " + dbmd.getDatabaseProductName());
+            System.out.println("DatabaseProductVersion: " + dbmd.getDatabaseProductVersion());
+            System.out.println("DriverName: " + dbmd.getDriverName());
+            System.out.println("DriverVersion: " + dbmd.getDriverVersion());
             Verbindung.close();
 
         } catch (Exception Fehler){
